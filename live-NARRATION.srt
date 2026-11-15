@@ -1,0 +1,35 @@
+1
+00:00:00,200 --> 00:00:05,900
+Meridian Solar, on a Thursday: thirteen jobs in flight.
+
+2
+00:00:06,200 --> 00:00:10,900
+The pipeline as one table: the stage, the next due date, the owner.
+
+3
+00:00:11,200 --> 00:00:15,900
+Open a job and the whole of it is on one page.
+
+4
+00:00:16,200 --> 00:00:20,900
+Permitting and procurement are closed. Installation is the live phase.
+
+5
+00:00:21,200 --> 00:00:26,900
+Every task names an owner, a date, and what it waits on.
+
+6
+00:00:27,200 --> 00:00:32,900
+The photographs are filed against the job, not left on a phone.
+
+7
+00:00:33,200 --> 00:00:38,900
+Then the company work list: overdue first, then everything else.
+
+8
+00:00:39,200 --> 00:00:44,400
+Deposits, progress payments and balances sit on the job they bill.
+
+9
+00:00:44,700 --> 00:00:51,400
+And the panel layout lives here too, ready to send.

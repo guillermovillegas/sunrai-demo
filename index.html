@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SunrAI — three demonstration films</title>
+<style>
+  :root {
+    --bg: #09090b; --surface: #161618; --fg: #fafafa; --muted: #a1a1aa;
+    --accent: #c4f042; --border: #2c2c31; --danger: #f07373;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--fg);
+    font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased; }
+  main { max-width: 1180px; margin: 0 auto; padding: 64px 28px 96px; }
+  header { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;
+    border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 36px; }
+  h1 { font-size: 30px; letter-spacing: -0.03em; margin: 0; font-weight: 600; }
+  h1 em { font-style: normal; color: var(--accent); }
+  header p { margin: 0; color: var(--muted); font-size: 15px; }
+  .film { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: 28px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+  .film:last-of-type { border-bottom: 0; }
+  video { width: 100%; height: auto; display: block; border-radius: 10px;
+    border: 1px solid var(--border); background: #000; aspect-ratio: 16 / 9; }
+  .meta h2 { margin: 0 0 6px; font-size: 19px; letter-spacing: -0.02em; font-weight: 600; }
+  .meta .form { color: var(--accent); font-size: 12px; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 10px; }
+  .meta p { margin: 0 0 14px; color: var(--muted); font-size: 14.5px; line-height: 1.55; }
+  dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px;
+    margin: 0 0 16px; font-size: 13.5px; }
+  dt { color: var(--muted); }
+  dd { margin: 0; font-variant-numeric: tabular-nums; }
+  .links { display: flex; gap: 10px; flex-wrap: wrap; }
+  a { color: var(--fg); text-decoration: none; border: 1px solid var(--border);
+    border-radius: 7px; padding: 7px 12px; font-size: 13px;
+    transition: border-color 180ms var(--ease), background-color 180ms var(--ease); }
+  a:hover { border-color: var(--accent); background: #14140f; }
+  .note { margin-top: 40px; padding: 20px 22px; border: 1px solid var(--border);
+    border-radius: 10px; background: var(--surface); }
+  .note h3 { margin: 0 0 10px; font-size: 15px; }
+  .note p, .note li { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 0 0 8px; }
+  .note ul { margin: 0; padding-left: 20px; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px;
+    color: var(--fg); background: #1d1d21; padding: 1px 5px; border-radius: 4px; }
+  table { border-collapse: collapse; margin: 6px 0 14px; font-size: 13.5px; }
+  th, td { text-align: left; padding: 5px 16px 5px 0; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 500; }
+  @media (max-width: 900px) { .film { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Sunr<em>AI</em> — three demonstration films</h1>
+    <p>Same account, same features, three different forms. Silent, captions burned in, narration scripted.</p>
+  </header>
+
+  <section class="film">
+    <video src="sunrai-live-1080p.mp4" poster="poster-live.jpg" controls preload="metadata" playsinline></video>
+    <div class="meta">
+      <div class="form">Form A — live</div>
+      <h2>The real product, recorded</h2>
+      <p>A signed-in session on staging with the real pointer, cut to the beats with a camera
+        that crops to what the pointer is doing. Nothing is reconstructed: every pixel is the
+        product, including the parts nobody designed for a film. Nine screens; the storm and
+        dispatch pages did not survive the recording as usable frames, so they are not in it.</p>
+      <dl>
+        <dt>Length</dt><dd>0:59</dd>
+        <dt>Source</dt><dd>staging, demo account</dd>
+        <dt>Cost to maintain</dt><dd>re-record</dd>
+      </dl>
+      <div class="links">
+        <a href="sunrai-live-1080p.mp4">Watch (MP4)</a>
+        <a href="live-SCRIPT.md">Script</a>
+        <a href="live-NARRATION.srt">Subtitles</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="film">
+    <video src="sunrai-stage-1080p.mp4" poster="poster-stage.jpg" controls preload="metadata" playsinline></video>
+    <div class="meta">
+      <div class="form">Form B — staged</div>
+      <h2>The walkthrough, authored</h2>
+      <p>A hand-built stage in the product's own visual language, frame-stepped from a virtual
+        clock, so every beat holds exactly as long as its copy needs. Repeatable and precise;
+        also a second implementation of the interface, so it costs the most to keep true.</p>
+      <dl>
+        <dt>Length</dt><dd>1:12</dd>
+        <dt>Source</dt><dd>authored stage</dd>
+        <dt>Cost to maintain</dt><dd>re-check each UI change</dd>
+      </dl>
+      <div class="links">
+        <a href="sunrai-stage-1080p.mp4">Watch (MP4)</a>
+        <a href="stage-SCRIPT.md">Script</a>
+        <a href="stage-NARRATION.srt">Subtitles</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="film">
+    <video src="sunrai-motion-1080p.mp4" poster="poster-motion.jpg" controls preload="metadata" playsinline></video>
+    <div class="meta">
+      <div class="form">Form C — motion</div>
+      <h2>The product as material</h2>
+      <p>The product's own screenshots treated as material: camera pushes, masked reveals,
+        figures lifted out as type, connectors drawn between screens that belong to the same
+        story. The one a booth loop can bear to play forty times an hour.</p>
+      <dl>
+        <dt>Length</dt><dd>1:16</dd>
+        <dt>Source</dt><dd>staging screenshots</dd>
+        <dt>Cost to maintain</dt><dd>re-capture stills</dd>
+      </dl>
+      <div class="links">
+        <a href="sunrai-motion-1080p.mp4">Watch (MP4)</a>
+        <a href="motion-SCRIPT.md">Script</a>
+        <a href="motion-NARRATION.srt">Subtitles</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="note">
+    <h3>What the figures mean</h3>
+    <p>Every number on screen was read from the demo account on staging
+      (<code>Meridian Solar</code>), not typed by hand:</p>
+    <table>
+      <tr><th>Figure</th><th>Value</th><th>Read from</th></tr>
+      <tr><td>Jobs running</td><td>13</td><td>projects</td></tr>
+      <tr><td>Open tasks</td><td>228</td><td>the Tasks screen</td></tr>
+      <tr><td>Overdue</td><td>14</td><td>the Overdue view</td></tr>
+      <tr><td>Inspections on file</td><td>9</td><td>the Inspections screen</td></tr>
+      <tr><td>Photos</td><td>28</td><td>survey + checklist photos</td></tr>
+    </table>
+    <h3 style="margin-top:18px">What is not in these films</h3>
+    <ul>
+      <li>No audio track in these three films: the narration is scripted, timed to each cut and
+        one command from recorded (<code>videos/lib/narrate.py</code>, ElevenLabs Sarah). The key
+        the 2026-11-14 demos used is not readable from this host, so no voice track is here.</li>
+      <li>No generated imagery, stock footage or music.</li>
+      <li>Form B is a faithful reconstruction, not the product itself — the one to retire first
+        if a single form is chosen.</li>
+    </ul>
+  </div>
+  <section class="film">
+    <h3 style="margin-top:26px">With a narrator</h3>
+    <p class="note">The same three films, spoken. The voice sits over the picture; nothing else about the film changes.
+    Use these where someone will not stand at the screen and read out the words.</p>
+    <ul>
+      <li><a href="sunrai-live-narrated.mp4">A &middot; The real product, recorded &mdash; narrated</a> &nbsp;<span class="note">0:59</span></li>
+      <li><a href="sunrai-stage-narrated.mp4">B &middot; The walkthrough, authored &mdash; narrated</a> &nbsp;<span class="note">1:12</span></li>
+      <li><a href="sunrai-motion-narrated.mp4">C &middot; The product as material &mdash; narrated</a> &nbsp;<span class="note">1:16</span></li>
+    </ul>
+  </section>
+
+</main>
+</body>
+</html>
