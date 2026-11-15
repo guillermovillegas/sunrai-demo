@@ -179,3 +179,36 @@ motion: self-test ok — 6 lines, audio 76.00s vs film 76.00s, streams ['video',
 - **The demo data ages.** Dates are relative to the seed run, so a film made today
   says "Nov 13" where next month's seed would say something else. Re-seeding and
   re-recording is the honest refresh.
+
+## The voice (2026-11-15)
+
+ElevenLabs is connected again, from `~/.config/agent-operations/elevenlabs.env` (0600, outside
+every repository; `narrate.py --check` reports which of the two sources it used). Voice: Brian
+(`nPczCjzI2devNBz1zQrb`), `eleven_multilingual_v2`, stability 0.45 / similarity 0.80 / style 0.22
+— a documentary read, not a conversational one.
+
+Every line is trimmed of dead air, high-passed at 90 Hz with a 1.5 dB dip at 240 Hz so it stays
+clear on a small speaker, gently compressed, fitted with `atempo` when a take ran past its shot
+(max ×1.12), then mixed at its cue over a silent bed and matched to -16 LUFS / -1.5 dBTP with a
+two-pass `loudnorm`. Measured on the finished files: live -16.2, stage -16.3, motion -16.2 LUFS.
+Speech onset lands 0.01-0.05 s after each cue — in sync, by measurement not by eye.
+
+| Form | Narrated master | Length |
+|---|---|---:|
+| A live | `sunrai-live-narrated.mp4` | 0:59.5 |
+| B stage | `sunrai-stage-narrated.mp4` | 1:12.0 |
+| C motion | `sunrai-motion-narrated.mp4` | 1:16.0 |
+
+Rebuild with `python3 videos/lib/narrate.py live stage motion`; `--voices` lists the alternatives;
+`--self-test` proves the pacing and mix with a tone, no credential needed.
+
+## Public viewing (2026-11-15)
+
+The booth needs a link anyone can open, so the deliverable is published at
+
+**https://guillermovillegas.github.io/sunrai-demo/**
+
+GitHub Pages over the public repo `guillermovillegas/sunrai-demo` (main, root). Silent and
+narrated cuts, posters, stories, scripts and subtitles — 20 files, 108 MB. Anyone with the link
+can watch; nothing on the page is confidential (synthetic Meridian Solar data only). The gated
+Cloudflare link stays as the owner-only copy.
