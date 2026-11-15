@@ -55,11 +55,17 @@
 <main>
   <header>
     <h1>Sunr<em>AI</em> — three demonstration films</h1>
-    <p>Same account, same features, three different forms. Silent, captions burned in, narration scripted.</p>
+    <p>Same account, same features, three different forms. Captions burned in, and each one in a silent cut and a narrated cut — press the switch above any film.</p>
   </header>
 
   <section class="film">
-    <video src="sunrai-live-1080p.mp4" poster="poster-live.jpg" controls preload="metadata" playsinline></video>
+    <div class="player">
+      <video id="v-live" src="sunrai-live-narrated.mp4" poster="poster-live.jpg" controls preload="metadata" playsinline></video>
+      <div class="switch">
+        <button type="button" data-form="live" data-cut="narrated" class="on" aria-pressed="true">With narrator</button>
+        <button type="button" data-form="live" data-cut="silent" class="off" aria-pressed="false">Silent</button>
+      </div>
+    </div>
     <div class="meta">
       <div class="form">Form A — live</div>
       <h2>The real product, recorded</h2>
@@ -81,7 +87,13 @@
   </section>
 
   <section class="film">
-    <video src="sunrai-stage-1080p.mp4" poster="poster-stage.jpg" controls preload="metadata" playsinline></video>
+    <div class="player">
+      <video id="v-stage" src="sunrai-stage-narrated.mp4" poster="poster-stage.jpg" controls preload="metadata" playsinline></video>
+      <div class="switch">
+        <button type="button" data-form="stage" data-cut="narrated" class="on" aria-pressed="true">With narrator</button>
+        <button type="button" data-form="stage" data-cut="silent" class="off" aria-pressed="false">Silent</button>
+      </div>
+    </div>
     <div class="meta">
       <div class="form">Form B — staged</div>
       <h2>The walkthrough, authored</h2>
@@ -102,7 +114,13 @@
   </section>
 
   <section class="film">
-    <video src="sunrai-motion-1080p.mp4" poster="poster-motion.jpg" controls preload="metadata" playsinline></video>
+    <div class="player">
+      <video id="v-motion" src="sunrai-motion-narrated.mp4" poster="poster-motion.jpg" controls preload="metadata" playsinline></video>
+      <div class="switch">
+        <button type="button" data-form="motion" data-cut="narrated" class="on" aria-pressed="true">With narrator</button>
+        <button type="button" data-form="motion" data-cut="silent" class="off" aria-pressed="false">Silent</button>
+      </div>
+    </div>
     <div class="meta">
       <div class="form">Form C — motion</div>
       <h2>The product as material</h2>
@@ -144,17 +162,28 @@
         if a single form is chosen.</li>
     </ul>
   </div>
-  <section class="film">
-    <h3 style="margin-top:26px">With a narrator</h3>
-    <p class="note">The same three films, spoken. The voice sits over the picture; nothing else about the film changes.
-    Use these where someone will not stand at the screen and read out the words.</p>
-    <ul>
-      <li><a href="sunrai-live-narrated.mp4">A &middot; The real product, recorded &mdash; narrated</a> &nbsp;<span class="note">0:59</span></li>
-      <li><a href="sunrai-stage-narrated.mp4">B &middot; The walkthrough, authored &mdash; narrated</a> &nbsp;<span class="note">1:12</span></li>
-      <li><a href="sunrai-motion-narrated.mp4">C &middot; The product as material &mdash; narrated</a> &nbsp;<span class="note">1:16</span></li>
-    </ul>
-  </section>
-
 </main>
+<script>
+  document.querySelectorAll('.switch button').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var form = button.dataset.form;
+      var video = document.getElementById('v-' + form);
+      var wasPlaying = !video.paused;
+      var at = video.currentTime;
+      video.src = 'sunrai-' + form + (button.dataset.cut === 'silent' ? '-1080p' : '-narrated') + '.mp4';
+      video.load();
+      video.addEventListener('loadedmetadata', function once() {
+        video.removeEventListener('loadedmetadata', once);
+        video.currentTime = at;
+        if (wasPlaying) video.play();
+      });
+      button.parentNode.querySelectorAll('button').forEach(function (other) {
+        other.classList.toggle('on', other === button);
+        other.classList.toggle('off', other !== button);
+        other.setAttribute('aria-pressed', other === button ? 'true' : 'false');
+      });
+    });
+  });
+</script>
 </body>
 </html>
